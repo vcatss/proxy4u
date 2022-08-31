@@ -8,7 +8,7 @@ export default function Layout({children}) {
             <div className="w-full flex flex-wrap p-3 shadow-md">
                 <Navbar></Navbar>
             </div>
-            <main className="w-full flex flex-wrap justify-center">
+            <main className="w-full flex flex-wrap">
                 {children}
             </main>
             <div className="w-full flex flex-wrap">
