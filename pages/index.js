@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import Layout from '/layouts/main.js'
+import React, { Component } from "react";
 import Link from 'next/link';
 import ReactTypingEffect from 'react-typing-effect';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 export default function Page() {
   return (
@@ -10,6 +14,7 @@ export default function Page() {
         <Hero></Hero>
         <Feature></Feature>
         <About></About>
+        <Review></Review>
       </Layout>
     </>
   )
@@ -113,10 +118,23 @@ export function About(){
   return (
     <>
       <div className='w-full flex flex-wrap relative justify-center'>
-        <div className='absolute top-0 left-0 w-full' style={backgroundImage}>
-          
+        <div className='absolute top-0 left-0 w-full flex items-center justify-center' style={backgroundImage}>
+          <div className='w-full container grid grid-cols-1 md:grid-cols-4 gap-12'>
+            <span className='bg-white rounded-lg text-center'>
+              1
+            </span>
+            <span className='bg-white rounded-lg text-center'>
+              1
+            </span>
+            <span className='bg-white rounded-lg text-center'>
+              1
+            </span>
+            <span className='bg-white rounded-lg text-center'>
+              1
+            </span>
+          </div>
         </div>
-        <div className='container bg-white rounded-lg mt-[200px] w-full flex flex-wrap z-20'>
+        <div className='container bg-white rounded-lg mt-[300px] w-full flex flex-wrap z-20'>
           <span className='grid grid-cols-1 md:grid-cols-4 gap-6 p-12 shadow-md rounded-xl'>
             {list}
             <span className='col-span-4 flex justify-center my-2'>
@@ -127,4 +145,63 @@ export function About(){
       </div>
     </>
   )
+}
+
+export function Review(){
+  return(
+    <>
+      <span className='w-full flex justify-center my-24'>
+        <div className='container'>
+          <SimpleSlider></SimpleSlider>
+        </div>
+      </span>
+    </>
+  )
+}
+
+
+
+export class SimpleSlider extends Component {
+  render() {
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    };
+    return (
+      <div>
+        <Slider {...settings}>
+          <div className='p-4'>
+            <h3 className='bg-blue-500 rounded-lg text-center text-white'>1</h3>
+          </div>
+          <div className='p-4'>
+            <h3 className='bg-blue-500 rounded-lg text-center text-white'>1</h3>
+          </div>
+          <div className='p-4'>
+            <h3 className='bg-blue-500 rounded-lg text-center text-white'>1</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+          <div>
+            <h3>5</h3>
+          </div>
+          <div>
+            <h3>6</h3>
+          </div>
+          <div>
+            <h3>7</h3>
+          </div>
+          <div>
+            <h3>8</h3>
+          </div>
+          <div>
+            <h3>9</h3>
+          </div>
+        </Slider>
+      </div>
+    );
+  }
 }
